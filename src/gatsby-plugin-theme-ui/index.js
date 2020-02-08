@@ -4,6 +4,13 @@ export default {
     background: '#fff',
     primary: 'red',
     secondary: 'yellow',
+    modes: {
+      dark: {
+        text: '#fff',
+        background: '#000',
+        primary: '#0cf',
+      },
+    },
   },
   fonts: {
     body: 'Lato',
