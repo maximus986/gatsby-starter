@@ -15,13 +15,12 @@ const Layout = ({ children }) => (
         }
         body,
         html,
-        #___gatsby,
-        #___gatsby > div {
+        #___gatsby {
           height: 100%;
         }
       `}
     />
-    {children}
+    <main>{children}</main>
   </>
 );
 
