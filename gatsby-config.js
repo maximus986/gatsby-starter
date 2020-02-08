@@ -5,6 +5,15 @@ module.exports = {
     author: `@AleksandarM986`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: `site-url`, // add site url
+        sitemap: `site-url/sitemap.xml`, // add site url
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -13,7 +22,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-emotion`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-playground`,
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
@@ -31,4 +42,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
