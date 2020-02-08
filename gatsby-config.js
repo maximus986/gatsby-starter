@@ -13,6 +13,22 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Lato`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Roboto`,
+            subsets: [`latin`],
+          },
+        ],
+      },
+    },
+    `gatsby-plugin-theme-ui`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     {
