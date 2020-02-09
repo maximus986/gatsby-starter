@@ -1,9 +1,11 @@
 export default {
   colors: {
-    text: '#333',
+    text: '#787976',
     background: '#fff',
-    primary: 'red',
-    secondary: 'yellow',
+    primary: '#14bf98',
+    secondary: '#153e52',
+    muted: '#c1cace',
+    heading: '#484a46',
     modes: {
       dark: {
         text: '#fff',
@@ -13,12 +15,13 @@ export default {
     },
   },
   fonts: {
-    body: 'Lato',
-    heading: 'system-ui, sans-serif',
+    body: 'Open Sans',
+    heading: 'Montserrat',
     monospace: 'Menlo, monospace',
   },
   fontWeights: {
     body: 400,
+    links: 600,
     heading: 700,
     bold: 700,
   },
@@ -28,4 +31,7 @@ export default {
   },
   fontSizes: [2, 4, 14, 16, 20, 24, 32, 48, 64, 72],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  transition: {
+    link: '0.3s ease',
+  },
 };
