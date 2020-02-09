@@ -41,6 +41,11 @@ export const Header = () => {
 };
 
 const HeaderContainer = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
   padding: 1.8rem 1.6rem 0.6rem;
   box-shadow: 0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1);
   @media (min-width: 992px) {
