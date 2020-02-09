@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter`,
+    title: `Aria - Business HTML Landing Page Template`,
     description: `Gatsby Starter`,
     author: `@AleksandarM986`,
   },
@@ -18,11 +18,13 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Lato`,
-            variants: [`400`, `700`],
+            family: `Open Sans`,
+            variants: [`400`, `400i`, `600`, `700`],
+            subsets: [`latin`],
           },
           {
-            family: `Roboto`,
+            family: `Montserrat`,
+            variants: [`500`, `700`],
             subsets: [`latin`],
           },
         ],
@@ -51,7 +53,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
