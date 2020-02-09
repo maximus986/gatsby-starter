@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { jsx, useThemeUI } from 'theme-ui';
 import logo from '../../images/logo.svg';
@@ -9,13 +9,32 @@ import { SocialLinks } from './socialLinks';
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [animateNavbar, setAnimateNavbar] = useState(false);
   const { theme } = useThemeUI();
   const { colors } = theme;
+
   const handleShowMenu = () => {
     setShowMenu(showMenu => !showMenu);
   };
+
+  const handleScroll = () => {
+    const offset = window.pageYOffset;
+    if (offset >= 50) {
+      setAnimateNavbar(true);
+    } else {
+      setAnimateNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+
   return (
-    <HeaderContainer sx={{ bg: 'secondary' }}>
+    <HeaderContainer animate={animateNavbar} {...{ colors }}>
       <HeaderActionWrapper>
         <a href="#header">
           <Img src={logo} alt="Site logo" />
@@ -41,6 +60,7 @@ export const Header = () => {
 };
 
 const HeaderContainer = styled.header`
+  background: ${props => props.colors.secondary};
   position: fixed;
   top: 0;
   left: 0;
@@ -52,15 +72,20 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: none;
-    padding: 3.4rem 3.2rem;
-    background: transparent;
+    transition: 0.3s ease;
+    box-shadow: ${props =>
+      props.animate ? '0 0.0625rem 0.375rem 0 rgba(0, 0, 0, 0.1)' : 'none'};
+    padding: ${props => (props.animate ? '1rem 3.2rem' : '3.4rem 3.2rem')};
+    background: ${props =>
+      props.animate ? props.colors.secondary : 'transparent'};
   }
   @media (min-width: 1200px) {
     padding: 3.4rem 8rem;
+    padding: ${props => (props.animate ? '1rem 8rem' : '3.4rem 8rem')};
   }
   @media (min-width: 1600px) {
     padding: 3.4rem 19.2rem;
+    padding: ${props => (props.animate ? '1rem 19.2rem' : '3.4rem 19.2rem')};
   }
 `;
 
