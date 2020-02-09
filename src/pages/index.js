@@ -16,7 +16,7 @@ const IndexPage = () => {
 
   const { bgImage } = useStaticQuery(graphql`
     {
-      bgImage: file(relativePath: { eq: "backgrounds/header-background.jpg" }) {
+      bgImage: file(relativePath: { eq: "header-background.jpg" }) {
         name
         childImageSharp {
           fluid(maxWidth: 4160, quality: 90) {
