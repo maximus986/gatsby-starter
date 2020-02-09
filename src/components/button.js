@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, useThemeUI } from 'theme-ui';
 import styled from '@emotion/styled';
+import { jsx, useThemeUI } from 'theme-ui';
 
 export const Button = ({ path, children }) => {
   const { theme } = useThemeUI();
@@ -32,5 +32,6 @@ const Btn = styled.a`
   &:hover {
     background: transparent;
     border-color: ${props => props.colors.primary};
+    color: ${props => props.colors.primary};
   }
 `;

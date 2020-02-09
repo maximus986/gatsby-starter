@@ -1,12 +1,13 @@
 /** @jsx jsx */
 import { graphql, useStaticQuery } from 'gatsby';
+import { Col, Container, Row } from 'react-grid-system';
 import { jsx } from 'theme-ui';
 import { Banner } from '../components/banner';
 import Hero from '../components/hero';
+import { Intro } from '../components/intro';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { useSiteMetadata } from '../hooks/useSiteMetadata';
-import { Container, Row, Col } from 'react-grid-system';
 
 const IndexPage = () => {
   const {
@@ -25,12 +26,16 @@ const IndexPage = () => {
       }
     }
   `);
-  console.log(bgImage);
 
   return (
     <Layout>
       <SEO title={title} />
-      <Hero img={bgImage.childImageSharp.fluid} alt={bgImage.name} hero={true}>
+      <Hero
+        img={bgImage.childImageSharp.fluid}
+        alt={bgImage.name}
+        hero={true}
+        id="header"
+      >
         <Container>
           <Row>
             <Col lg={12}>
@@ -39,6 +44,7 @@ const IndexPage = () => {
           </Row>
         </Container>
       </Hero>
+      <Intro />
     </Layout>
   );
 };
