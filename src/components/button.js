@@ -3,8 +3,9 @@ import styled from '@emotion/styled';
 import { jsx, useThemeUI } from 'theme-ui';
 
 export const Button = ({ path, children }) => {
-  const { theme } = useThemeUI();
-  const { colors } = theme;
+  const {
+    theme: { colors },
+  } = useThemeUI();
   return (
     <Btn
       href={path}

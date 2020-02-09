@@ -10,8 +10,9 @@ import { SocialLinks } from './socialLinks';
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [animateNavbar, setAnimateNavbar] = useState(false);
-  const { theme } = useThemeUI();
-  const { colors } = theme;
+  const {
+    theme: { colors },
+  } = useThemeUI();
 
   const handleShowMenu = () => {
     setShowMenu(showMenu => !showMenu);
@@ -36,7 +37,7 @@ export const Header = () => {
   return (
     <HeaderContainer animate={animateNavbar} {...{ colors }}>
       <HeaderActionWrapper>
-        <a href="#header">
+        <a href="#home">
           <Img src={logo} alt="Site logo" />
         </a>
         {!showMenu ? (
@@ -50,7 +51,7 @@ export const Header = () => {
         )}
       </HeaderActionWrapper>
       <NavContainer>
-        <Navigation showMenu={showMenu} />
+        <Navigation showMenu={showMenu} onNavigate={() => setShowMenu(false)} />
         <SocialLinksWrapper>
           <SocialLinks />
         </SocialLinksWrapper>

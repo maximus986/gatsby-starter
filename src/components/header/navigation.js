@@ -1,14 +1,24 @@
 /** @jsx jsx */
 import styled from '@emotion/styled';
-import { jsx } from 'theme-ui';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
+import Scrollspy from 'react-scrollspy';
+import { jsx, useThemeUI } from 'theme-ui';
 import navLinks from '../../static-data/nav-links';
 
-export const Navigation = ({ showMenu }) => {
+export const Navigation = ({ showMenu, onNavigate }) => {
+  const {
+    theme: { colors },
+  } = useThemeUI();
+
   return (
     <NavigationContainer>
-      <NavLinks open={showMenu}>
+      <NavLinks
+        open={showMenu}
+        items={navLinks.map(link => link.text)}
+        currentClassName="active"
+      >
         {navLinks.map((link, i) => (
-          <li key={i}>
+          <ListItem key={i} {...{ colors }}>
             <Link
               href={link.path}
               sx={{
@@ -19,10 +29,11 @@ export const Navigation = ({ showMenu }) => {
                   color: 'primary',
                 },
               }}
+              onClick={onNavigate}
             >
               {link.text}
             </Link>
-          </li>
+          </ListItem>
         ))}
       </NavLinks>
     </NavigationContainer>
@@ -37,7 +48,7 @@ const NavigationContainer = styled.nav`
   }
 `;
 
-const NavLinks = styled.ul`
+const NavLinks = styled(Scrollspy)`
   overflow: hidden;
   transition: height 0.35s ease;
   height: ${props => (props.open ? '258px' : '0')};
@@ -45,17 +56,23 @@ const NavLinks = styled.ul`
     height: auto;
     display: flex;
   }
-  li {
+`;
+
+const ListItem = styled.li`
     list-style-type: none;
+    color: #fff;
+    &.active {
+      color: ${props => props.colors.primary};
+    }
   }
 `;
 
-const Link = styled.a`
+const Link = styled(AnchorLink)`
   display: block;
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 1rem 1.2rem;
-  color: #fff;
+  color: inherit;
   @media (min-width: 992px) {
     padding: 0.4rem 1.2rem;
   }

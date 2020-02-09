@@ -30,12 +30,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title={title} />
-      <Hero
-        img={bgImage.childImageSharp.fluid}
-        alt={bgImage.name}
-        hero={true}
-        id="header"
-      >
+      <Hero img={bgImage.childImageSharp.fluid} alt={bgImage.name} hero={true}>
         <Container>
           <Row>
             <Col lg={12}>

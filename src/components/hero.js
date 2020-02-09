@@ -4,7 +4,13 @@ import styled from '@emotion/styled';
 
 const Hero = ({ hero, img, alt, children, className }) => {
   return (
-    <BackgroundImage className={className} hero={hero} fluid={img} alt={alt}>
+    <BackgroundImage
+      className={className}
+      hero={hero}
+      fluid={img}
+      alt={alt}
+      id="home"
+    >
       {children}
     </BackgroundImage>
   );

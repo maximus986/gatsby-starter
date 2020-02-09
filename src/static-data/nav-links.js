@@ -1,6 +1,6 @@
 export default [
   {
-    path: '#header',
+    path: '#home',
     text: 'home',
   },
   {
@@ -13,7 +13,7 @@ export default [
   },
   {
     path: '#callMe',
-    text: 'call me',
+    text: 'callMe',
   },
   {
     path: '#projects',
